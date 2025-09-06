@@ -1,6 +1,3 @@
-Perfect! Screenshots make the README ✨pop✨. I’ll add a **Screenshots section with placeholders** so you can just drop your images later. Here’s the **full README.md** (copy-paste ready):
-
-```markdown
 # 📈 Stocks CRUD Application
 
 A full-stack CRUD application to manage stock data. Built with **FastAPI** + **SQLAlchemy** for the backend and **ReactJS** for the frontend.  
@@ -27,17 +24,16 @@ This project allows you to load stock data, view it in a table, visualize it in 
 ## 📂 Project Structure
 
 ```
-
 stocks-crud/
 ├─ backend/
 │  ├─ app/
-│  │  ├─ **init**.py
+│  │  ├─ __init__.py
 │  │  ├─ main.py
 │  │  ├─ models.py
 │  │  ├─ schemas.py
 │  │  ├─ database.py
 │  │  ├─ crud.py
-│  │  └─ load\_data.py
+│  │  └─ load_data.py
 │  ├─ requirements.txt
 │  ├─ .env
 │  └─ .gitignore
@@ -53,8 +49,7 @@ stocks-crud/
 │        ├─ StockTable.js
 │        └─ StockChart.js
 └─ README.md
-
-````
+```
 
 ---
 
@@ -63,10 +58,9 @@ stocks-crud/
 1. **Navigate to backend folder**
    ```bash
    cd backend
-````
+   ```
 
 2. **Create virtual environment**
-
    ```bash
    python -m venv .venv
    source .venv/bin/activate   # On Mac/Linux
@@ -74,25 +68,21 @@ stocks-crud/
    ```
 
 3. **Install dependencies**
-
    ```bash
    pip install -r requirements.txt
    ```
 
 4. **Setup environment variables (`.env` file)**
-
    ```
    DATABASE_URL=sqlite:///./stocks.db
    ```
 
 5. **Run FastAPI server**
-
    ```bash
    uvicorn app.main:app --reload
    ```
 
-Backend will run at 👉 `http://127.0.0.1:8000`
-
+Backend will run at 👉 `http://127.0.0.1:8000`  
 API docs available at 👉 `http://127.0.0.1:8000/docs`
 
 ---
@@ -100,25 +90,21 @@ API docs available at 👉 `http://127.0.0.1:8000/docs`
 ## 💻 Frontend Setup (ReactJS)
 
 1. **Navigate to frontend folder**
-
    ```bash
    cd frontend
    ```
 
 2. **Install dependencies**
-
    ```bash
    npm install
    ```
 
 3. **Setup environment variables (`.env` file)**
-
    ```
    REACT_APP_API_URL=http://127.0.0.1:8000
    ```
 
 4. **Run React development server**
-
    ```bash
    npm start
    ```
@@ -132,12 +118,11 @@ Frontend will run at 👉 `http://localhost:3000`
 ### Backend
 
 * Run server:
-
   ```bash
   uvicorn app.main:app --reload
   ```
-* Run data loader:
 
+* Run data loader:
   ```bash
   python -m app.load_data
   ```
@@ -145,12 +130,11 @@ Frontend will run at 👉 `http://localhost:3000`
 ### Frontend
 
 * Start app:
-
   ```bash
   npm start
   ```
-* Build for production:
 
+* Build for production:
   ```bash
   npm run build
   ```
@@ -159,26 +143,23 @@ Frontend will run at 👉 `http://localhost:3000`
 
 ## 📝 API Endpoints
 
-* `GET /stocks/` → List all stocks
-* `POST /stocks/` → Create a stock
-* `GET /stocks/{id}` → Get stock by ID
-* `PUT /stocks/{id}` → Update stock
-* `DELETE /stocks/{id}` → Delete stock
+* `GET /stocks/` → List all stocks  
+* `POST /stocks/` → Create a stock  
+* `GET /stocks/{id}` → Get stock by ID  
+* `PUT /stocks/{id}` → Update stock  
+* `DELETE /stocks/{id}` → Delete stock  
 
 ---
 
 ## 📸 Screenshots
 
 ### Stock Table
-
 ![Stock Table](screenshots/stock-table.png)
 
 ### Stock Chart
-
 ![Stock Chart](screenshots/stock-chart.png)
 
 ### API Docs (Swagger UI)
-
 ![API Docs](screenshots/api-docs.png)
 
 ---
@@ -186,7 +167,6 @@ Frontend will run at 👉 `http://localhost:3000`
 ## 🔒 .gitignore Setup
 
 ### Backend (`backend/.gitignore`)
-
 ```
 __pycache__/
 *.py[cod]
@@ -205,7 +185,6 @@ env/
 ```
 
 ### Frontend (`frontend/.gitignore`)
-
 ```
 node_modules/
 build/
@@ -224,5 +203,3 @@ yarn-error.log*
 ## 👨‍💻 Author
 
 **Fuad Khan** – Software Engineering Student
-
----
