@@ -1,0 +1,1 @@
+# stocks-crud-react-fastapi
