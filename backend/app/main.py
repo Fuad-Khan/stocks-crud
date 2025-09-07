@@ -33,8 +33,14 @@ def health():
     return {"status": "ok"}
 
 @app.get("/stocks", response_model=list[schemas.StockOut])
-def list_stocks(skip: int = 0, limit: int = 200, trade_code: str | None = None, db: Session = Depends(get_db)):
+def list_stocks(
+    skip: int = 0,
+    limit: int = 100,  # default 100 rows per page
+    trade_code: str | None = None,
+    db: Session = Depends(get_db)
+):
     return crud.get_stocks(db, skip=skip, limit=limit, trade_code=trade_code)
+
 
 @app.get("/stocks/{stock_id}", response_model=schemas.StockOut)
 def get_stock(stock_id: int, db: Session = Depends(get_db)):
@@ -60,3 +66,7 @@ def delete_stock(stock_id: int, db: Session = Depends(get_db)):
     if not ok:
         raise HTTPException(404, "Stock not found")
     return {"deleted": stock_id}
+
+@app.get("/trade_codes", response_model=list[str])
+def list_trade_codes(db: Session = Depends(get_db)):
+    return crud.get_all_trade_codes(db)

@@ -4,11 +4,12 @@ from app import models, schemas
 from typing import List, Optional
 from datetime import date
 
-def get_stocks(db: Session, skip: int = 0, limit: int = 100, trade_code: Optional[str]=None):
+def get_stocks(db: Session, skip: int = 0, limit: int = 100, trade_code: Optional[str] = None):
     q = db.query(models.Stock)
     if trade_code:
         q = q.filter(models.Stock.trade_code == trade_code)
     return q.order_by(models.Stock.date.desc()).offset(skip).limit(limit).all()
+
 
 def get_stock(db: Session, stock_id: int):
     return db.query(models.Stock).filter(models.Stock.id == stock_id).first()
@@ -38,3 +39,7 @@ def delete_stock(db: Session, stock_id: int):
     db.delete(db_stock)
     db.commit()
     return True
+
+def get_all_trade_codes(db: Session):
+    rows = db.query(models.Stock.trade_code).distinct().all()
+    return [r[0] for r in rows]
