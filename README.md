@@ -159,7 +159,7 @@ Frontend will run at 👉 `http://localhost:3000`
 ### Stock Chart
 ![Stock Chart](screenshots/stock-chart.png)
 
-### API Docs (Swagger UI)
+### Full Page
 ![API Docs](screenshots/api-docs.png)
 
 ---
