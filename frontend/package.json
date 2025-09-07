@@ -2,7 +2,7 @@
   "name": "stocks-frontend",
   "version": "1.0.0",
   "private": true,
-  "homepage": ".",
+
   "dependencies": {
     "chart.js": "^4.3.0",
     "react": "^18.2.0",

@@ -101,6 +101,13 @@ h2 {
   margin-bottom: 20px;
 }
 
+.chart-container canvas {
+  display: block !important;
+  max-width: 100% !important;
+  height: 100% !important;
+}
+
+
 /* Stock Table */
 .stock-table {
   width: 100%;

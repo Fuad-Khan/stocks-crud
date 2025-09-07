@@ -157,13 +157,14 @@ export default function App() {
         </label>
       </div>
 
-      {/* Chart */}
-      <div style={{ height: 300, marginBottom: 20 }}>
-        <StockChart data={stocks} showVolume={showVolume} />
-      </div>
+{/* Chart */}
+<div className="chart-container">
+  <StockChart data={stocks} showVolume={showVolume} />
+</div>
 
-      {/* Table */}
-      <StockTable stocks={stocks} onUpdate={onUpdate} onDelete={onDelete} />
+{/* Table */}
+<StockTable stocks={stocks} onUpdate={onUpdate} onDelete={onDelete} />
+
 
       {/* Pagination controls */}
       <div className="pagination">
