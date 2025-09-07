@@ -1,23 +1,28 @@
 # 📈 Stocks CRUD Application
 
-A full-stack CRUD application to manage stock data. Built with **FastAPI** + **SQLAlchemy** for the backend and **ReactJS** for the frontend.  
+A full-stack CRUD application to manage stock data. Built with **FastAPI + SQLAlchemy** (backend) and **ReactJS** (frontend).
 
-This project allows you to load stock data, view it in a table, visualize it in charts, and perform CRUD operations.
+---
+
+## 🌍 Deployment
+
+- **Live Frontend:** [https://stocks-crud.vercel.app/](https://stocks-crud.vercel.app/)  
+- **Live Backend:** [https://stocks-crud-backend.onrender.com/](https://stocks-crud-backend.onrender.com/) *(⚠️ may take up to 1 minute to wake up if idle on Render)*
 
 ---
 
 ## 🚀 Features
 
-- **Backend (FastAPI + SQLAlchemy):**
-  - REST API for stock CRUD operations
-  - PostgreSQL/SQLite database support
-  - Pandas integration for bulk data load
-  - Alembic migrations (optional)
+### Backend (FastAPI + SQLAlchemy)
+- REST API for stock CRUD operations
+- PostgreSQL/SQLite support
+- Pandas integration for bulk data loading
+- Alembic migrations (optional)
 
-- **Frontend (ReactJS):**
-  - Responsive UI with stock table
-  - Line chart for stock prices
-  - CRUD operations with API integration
+### Frontend (ReactJS)
+- Responsive stock table
+- Line chart for stock prices (with filters)
+- CRUD operations with API integration
 
 ---
 
@@ -27,27 +32,23 @@ This project allows you to load stock data, view it in a table, visualize it in 
 stocks-crud/
 ├─ backend/
 │  ├─ app/
-│  │  ├─ __init__.py
-│  │  ├─ main.py
-│  │  ├─ models.py
-│  │  ├─ schemas.py
-│  │  ├─ database.py
-│  │  ├─ crud.py
-│  │  └─ load_data.py
+│  │  ├─ main.py          # FastAPI entrypoint
+│  │  ├─ models.py        # SQLAlchemy models
+│  │  ├─ schemas.py       # Pydantic schemas
+│  │  ├─ database.py      # Database config
+│  │  ├─ crud.py          # CRUD logic
+│  │  └─ load_data.py     # Bulk data loader
 │  ├─ requirements.txt
-│  ├─ .env
-│  └─ .gitignore
+│  └─ .env
 ├─ frontend/
+│  ├─ src/
+│  │  ├─ App.js
+│  │  ├─ api.js
+│  │  ├─ components/
+│  │  │  ├─ StockTable.js
+│  │  │  └─ StockChart.js
 │  ├─ package.json
-│  ├─ .env
-│  ├─ .gitignore
-│  └─ src/
-│     ├─ index.js
-│     ├─ App.js
-│     ├─ api.js
-│     ├─ components/
-│        ├─ StockTable.js
-│        └─ StockChart.js
+│  └─ .env
 └─ README.md
 ```
 
@@ -55,151 +56,104 @@ stocks-crud/
 
 ## ⚙️ Backend Setup (FastAPI)
 
-1. **Navigate to backend folder**
-   ```bash
-   cd backend
-   ```
+```bash
+cd backend
+python -m venv .venv
+source .venv/bin/activate   # Mac/Linux
+.venv\Scripts\activate      # Windows
 
-2. **Create virtual environment**
-   ```bash
-   python -m venv .venv
-   source .venv/bin/activate   # On Mac/Linux
-   .venv\Scripts\activate      # On Windows
-   ```
+pip install -r requirements.txt
+```
 
-3. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
+Add a `.env` file:
 
-4. **Setup environment variables (`.env` file)**
-   ```
-   DATABASE_URL=sqlite:///./stocks.db
-   ```
+```
+DATABASE_URL=sqlite:///./stocks.db
+```
 
-5. **Run FastAPI server**
-   ```bash
-   uvicorn app.main:app --reload
-   ```
+Run the server:
 
-Backend will run at 👉 `http://127.0.0.1:8000`  
-API docs available at 👉 `http://127.0.0.1:8000/docs`
+```bash
+uvicorn app.main:app --reload
+```
+
+* Backend runs at 👉 `http://127.0.0.1:8000`
+* API docs 👉 `http://127.0.0.1:8000/docs`
 
 ---
 
 ## 💻 Frontend Setup (ReactJS)
 
-1. **Navigate to frontend folder**
-   ```bash
-   cd frontend
-   ```
+```bash
+cd frontend
+npm install
+```
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
+Add a `.env` file:
 
-3. **Setup environment variables (`.env` file)**
-   ```
-   REACT_APP_API_URL=http://127.0.0.1:8000
-   ```
+```
+REACT_APP_API_URL=http://127.0.0.1:8000
+```
 
-4. **Run React development server**
-   ```bash
-   npm start
-   ```
+Run the app:
 
-Frontend will run at 👉 `http://localhost:3000`
+```bash
+npm start
+```
 
----
-
-## 🛠️ Common Commands
-
-### Backend
-
-* Run server:
-  ```bash
-  uvicorn app.main:app --reload
-  ```
-
-* Run data loader:
-  ```bash
-  python -m app.load_data
-  ```
-
-### Frontend
-
-* Start app:
-  ```bash
-  npm start
-  ```
-
-* Build for production:
-  ```bash
-  npm run build
-  ```
+* Frontend runs at 👉 `http://localhost:3000`
 
 ---
 
 ## 📝 API Endpoints
 
-* `GET /stocks/` → List all stocks  
-* `POST /stocks/` → Create a stock  
-* `GET /stocks/{id}` → Get stock by ID  
-* `PUT /stocks/{id}` → Update stock  
-* `DELETE /stocks/{id}` → Delete stock  
+* `GET /stocks/` → List all stocks
+* `POST /stocks/` → Create stock
+* `GET /stocks/{id}` → Get stock by ID
+* `PUT /stocks/{id}` → Update stock
+* `DELETE /stocks/{id}` → Delete stock
 
 ---
 
 ## 📸 Screenshots
 
-### Stock Table
+**Stock Table**
 ![Stock Table](screenshots/stock-table.png)
 
-### Stock Chart
+**Stock Chart**
 ![Stock Chart](screenshots/stock-chart.png)
 
-### Full Page
+**API Docs**
 ![API Docs](screenshots/api-docs.png)
 
 ---
 
-## 🔒 .gitignore Setup
+## 🔒 Gitignore
 
-### Backend (`backend/.gitignore`)
+### Backend
 ```
 __pycache__/
-*.py[cod]
-*$py.class
+*.db
 .env
 .venv/
-venv/
-env/
-*.db
-*.sqlite3
-*.sqlite
+*.log
 .vscode/
 .idea/
-.DS_Store
-*.log
 ```
 
-### Frontend (`frontend/.gitignore`)
+### Frontend
 ```
 node_modules/
 build/
 dist/
 .env
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
 .vscode/
 .idea/
-.DS_Store
 ```
 
 ---
 
 ## 👨‍💻 Author
 
-**Fuad Khan** – Software Engineering Student
+**Fuad Khan**
+📧 [mm.fuad.khan@gmail.com](mailto:mm.fuad.khan@gmail.com) | 📱 +8801726121880
